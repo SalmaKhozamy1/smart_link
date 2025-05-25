@@ -1,0 +1,197 @@
+@use '_mixins' as *;
+@use 'variables' as *;
+
+/* base style */
+@font-face {
+    font-family: "Tajawal";
+    src: url(../fonts/Tajawal.ttf);
+}
+* {
+    font-family: "Tajawal", sans-serif;
+    color: $text-color;
+    font-style: normal;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+body {
+    position: relative;
+    margin: 0px; padding: 0px;
+    min-width: 480px;
+    max-width: 4000px;
+    margin: auto;
+    min-height: 100vh;
+}
+::-webkit-scrollbar {
+    width: 4px;
+    background: #c3cec991;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: map-get($colors, "primary");
+    border-radius: 9px;
+}
+ul,
+ol {
+  @include list_reset;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0;
+  text-transform: capitalize;
+}
+//colors
+@each $name, $color in $colors {
+  .color-#{$name} {
+    color: #{$color};
+  }
+
+  .bg-#{$name} {
+    background-color: #{$color};
+  }
+}
+
+/* fonts */
+// font sizes
+@each $class, $size in $font-sizes {
+  .#{$class} {
+    font-size: $size;
+  }
+}
+
+// font weights
+@each $class, $weight in $font-weights {
+  .#{$class} {
+    font-weight: $weight;
+  }
+}
+
+@each $heading, $size-key in $headings-font-sizes {
+  #{$heading} {
+    font-size: map-get($font-sizes, $size-key);
+  }
+}
+
+p {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+}
+label {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+//buttons
+.btn {
+    @include flex();
+    padding: 12px 24px;
+    border-radius: 12px;
+    background: #FFF;   
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+  @include button-style(map-get($colors, "primary"));
+}
+.white-btn {
+    @include button-style(#fff,map-get($colors, "primary"),#fff);
+    * {
+        color: map-get($colors, "primary");
+    }
+}
+.btn-secondary {
+//   @include button(map-get($colors, "secondary"));
+}
+
+// custom class
+.full-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.gradient-layout {
+  @include full-cover;
+  background-color: $layout-gradient;
+}
+
+.buttons {
+    @include flex(row, center, center, wrap, 12px);
+}
+
+.grid-2 {
+  @include grid(350px); // min column = 350px
+}
+.grid-3 {
+  @include grid(250px); // min column = 250px
+}
+.max-width-100 {
+    max-width: 100%;
+}
+/* custom style */
+
+.gap-top-50 {
+    row-gap: 50px !important;
+}
+.form-control , .form-select {
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: var(--light-gray);
+    padding: 9px 20px;
+}
+.form-select {
+    color: #fff;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  }
+.form-control:focus , .form-select:focus{
+    border-color: #5473a184 !important;
+    background-color: var(--light-gray);
+    box-shadow: .3px .3px 5px .3px #006c8471 !important;
+}
+.form-select option {
+    background-color: #f3f3f3; 
+    color: #333;     
+}
+::placeholder {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--placeholder-color) !important;
+}
+textarea {
+    resize: none;
+}
+.padding {
+    padding: 14px var(--padding);
+}
+.divider {
+    width: 0.5px;
+    height: 12px;
+    background: var(--secondary-color);
+}
+.capitalize {
+    text-transform: capitalize;
+}
+.icon-sm {
+    width: 24px;
+    height: 24px;
+}
+.icon-lg {
+    width: 48px;
+    height: 48px;
+}
+.icon-xl {
+    width: 75px;
+    height: 75px;
+}
+.icon {
+  cursor: pointer;
+}

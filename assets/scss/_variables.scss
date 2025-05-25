@@ -1,0 +1,39 @@
+// Define variables
+$colors: (
+  "primary": #E88B2A,
+  "gradient-primary": linear-gradient(90deg, #E88B2A 0.03%, #E26730 73.39%, #DF5832 100.28%),
+  "dark": #3B3B3B,
+  "black": #1B1D1E,
+);
+
+// custom colors
+$layout-gradient: rgba(29, 29, 29, 0.85);
+$text-color: #1B1D1E;
+$gray-color: #D9D9D9;
+
+$font-sizes: (
+  "fs-14": 14px,
+  "fs-16": 16px,
+  "fs-18": 18px,
+  "fs-20": 20px,
+  "fs-38": 38px,
+  "fs-42": 42px,
+);
+
+$headings-font-sizes: (
+  h6: "fs-14",
+  h5: "fs-16",
+  h4: "fs-18",
+  h3: "fs-20",
+  h2: "fs-38",
+  h1: "fs-42",
+);
+
+$font-weights: (
+  "fw-400": 400,
+  "fw-500": 500,
+  "fw-700": 700,
+  "fw-900": 900
+);
+
+$main_padding: clamp(50px, 8.5vw, 500px);
