@@ -3,13 +3,22 @@ $colors: (
   "primary": #E88B2A,
   "gradient-primary": linear-gradient(90deg, #E88B2A 0.03%, #E26730 73.39%, #DF5832 100.28%),
   "dark": #3B3B3B,
-  "black": #1B1D1E,
 );
 
 // custom colors
+$secondary: #DF5832;
+$third: #E26730;
 $layout-gradient: rgba(29, 29, 29, 0.85);
 $text-color: #1B1D1E;
 $gray-color: #D9D9D9;
+$light-gray: #F8F9FC;
+$light-gradient-primary: linear-gradient(89deg, #e88c2a62 0.6%, #e2683043 37.72%, #73737313 99.33%);
+$light-primary-color: rgba(232, 139, 42, 0.10);
+$breadcrumb-color: #8E8E8E;
+$black: #1B1D1E;
+$body-color: #F8F9FC;
+$light-secondary: #FCD0C3;
+$light-third: #FFE9D3;
 
 $font-sizes: (
   "fs-14": 14px,
@@ -21,12 +30,12 @@ $font-sizes: (
 );
 
 $headings-font-sizes: (
-  h6: "fs-14",
-  h5: "fs-16",
-  h4: "fs-18",
-  h3: "fs-20",
-  h2: "fs-38",
-  h1: "fs-42",
+//   h6: "fs-14",
+//   h5: "fs-16",
+//   h4: "fs-18",
+//   h3: "fs-20",
+//   h2: "fs-38",
+//   h1: "fs-42",
 );
 
 $font-weights: (
@@ -36,4 +45,6 @@ $font-weights: (
   "fw-900": 900
 );
 
+// re-used variables 
 $main_padding: clamp(50px, 8.5vw, 500px);
+$max-body-width: 4000px;

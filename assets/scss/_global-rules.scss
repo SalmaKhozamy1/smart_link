@@ -19,11 +19,14 @@ html, body {
 body {
     position: relative;
     margin: 0px; padding: 0px;
-    min-width: 480px;
-    max-width: 4000px;
+    min-width: 400px;
+    max-width: $max-body-width;
     margin: auto;
     min-height: 100vh;
+    scroll-behavior: smooth;
+    background: $body-color;
 }
+
 ::-webkit-scrollbar {
     width: 4px;
     background: #c3cec991;
@@ -71,12 +74,6 @@ p, h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@each $heading, $size-key in $headings-font-sizes {
-  #{$heading} {
-    font-size: map-get($font-sizes, $size-key);
-  }
-}
-
 p {
     font-size: 18px;
     font-style: normal;
@@ -91,6 +88,7 @@ label {
 //buttons
 .btn {
     @include flex();
+    flex-wrap: nowrap;
     padding: 12px 24px;
     border-radius: 12px;
     background: #FFF;   
@@ -107,9 +105,6 @@ label {
         color: map-get($colors, "primary");
     }
 }
-.btn-secondary {
-//   @include button(map-get($colors, "secondary"));
-}
 
 // custom class
 .full-img {
@@ -125,20 +120,22 @@ label {
 }
 
 .buttons {
-    @include flex(row, center, center, wrap, 12px);
+    @include flex(row, center, center, nowrap, 12px);
 }
 
-.grid-2 {
+.grid-3 {
   @include grid(350px); // min column = 350px
 }
-.grid-3 {
+.grid-4 {
   @include grid(250px); // min column = 250px
 }
 .max-width-100 {
     max-width: 100%;
 }
+.main-padding {
+    @include apply-main-padding();
+}
 /* custom style */
-
 .gap-top-50 {
     row-gap: 50px !important;
 }
