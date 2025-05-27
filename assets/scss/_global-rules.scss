@@ -48,17 +48,31 @@ p, h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
   text-transform: capitalize;
 }
+img {
+  background-repeat: no-repeat;
+}
 //colors
 @each $name, $color in $colors {
   .color-#{$name} {
     color: #{$color};
   }
-
-  .bg-#{$name} {
-    background-color: #{$color};
-  }
+//   .bg-#{$name} {
+//     background-color: #{$color};
+//   }
 }
 
+// buttons
+$buttons-colors: (
+  "primary-gradient": $primary-gradient,
+  "primary": $primary
+);
+
+@each $name, $color in $buttons-colors {
+  .btn-#{$name} , .btn-#{$name}:active {
+    background: $color !important;
+    color: white !important;
+  }
+}
 /* fonts */
 // font sizes
 @each $class, $size in $font-sizes {
@@ -87,15 +101,16 @@ label {
 
 //buttons
 .btn {
-    @include flex();
+    @include flex($gap:5px);
     flex-wrap: nowrap;
     padding: 12px 24px;
     border-radius: 12px;
-    background: #FFF;   
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
+.btn:hover {
+    opacity: 0.9;
+}
 .btn-primary {
   @include button-style(map-get($colors, "primary"));
 }
@@ -113,7 +128,10 @@ label {
   object-fit: cover;
   max-width: 100%;
 }
-
+.img {
+  max-width: 100%;
+  max-height: 100%
+}
 .gradient-layout {
   @include full-cover;
   background-color: $layout-gradient;
@@ -134,6 +152,18 @@ label {
 }
 .main-padding {
     @include apply-main-padding();
+}
+.max-width-50 {
+    max-width: 50%;
+}
+.max-width-35 {
+    max-width: 35%;
+}
+.max-width-20 {
+    max-width: 20%;
+}
+.border-radius {
+    border-radius: $border-radius;
 }
 /* custom style */
 .gap-top-50 {

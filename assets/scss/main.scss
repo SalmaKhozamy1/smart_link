@@ -73,7 +73,7 @@ header {
     background-color: map-get($colors, "dark");
     z-index: 5;
     top: 0;
-    position: sticky;
+    position: sticky !important;
     width: 100%;
 }
 /* nav menu animation */
@@ -148,6 +148,7 @@ body:has(header.active) {
 //main page
 main {
     display: flex;
+    margin-bottom: $footer-height;
     flex-grow: 1;
     * {
       color: $black;
@@ -300,71 +301,117 @@ main {
 }
 
 /* swipper */
-.partner_swipper .swiper-pagination {
-    position: static !important;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-    padding-top: 13px;
-}
-.partner-swipper-btn {
-    position: relative !important;
-    left: unset;
-    right: unset;
-    aspect-ratio: 1/1;
-    width: 35px;
-    height: auto;
-    margin: 0px;
-    top: unset;
-    background: linear-gradient(to right, #1E7DA3, #1D5166);
-    border-radius: 50%;
-    color: #fff;
-}
-.partner-swipper-btn::after {
-    content: " ";
-}
-.partner-swipper-btn * {
-    color: #fff;
-}
+
+// .partner-swipper-btn {
+//     position: relative !important;
+//     left: unset;
+//     right: unset;
+//     aspect-ratio: 1/1;
+//     width: 35px;
+//     height: auto;
+//     margin: 0px;
+//     top: unset;
+//     background: linear-gradient(to right, #1E7DA3, #1D5166);
+//     border-radius: 50%;
+//     color: #fff;
+// }
+// .partner-swipper-btn::after {
+//     content: " ";
+// }
+// .partner-swipper-btn * {
+//     color: #fff;
+// }
 .partner_swipper {
-    aspect-ratio: 2/1;
+    height: 63vh;
     margin-left: auto;
     margin-right: auto;
-    background-color: var(--light-gray);
-}
-.partner_swipper .swiper-wrapper {
-    height: calc(100% - 22px);
-}
-.partner_swipper .swiper-slide {
+    background-image: url('../images/partner_bg.png');
+    @extend img;
+    background-position: center;
+    background-size: contain;
     text-align: center;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-}
-.partner_swipper .swiper-pagination-bullet {
-    background-color: #006B8480 !important;
-}
-.partner_swipper .swiper-pagination-bullet-active {
-    background: var(--primary-color) !important;
-}
-.steps-grid {
-    display: grid;
-    display: grid;
-    grid-template-columns: 2fr 2fr 2fr 1fr;
-    gap: 15px; 
-}
-.step-card {
-    gap: 15px;
-}
-.step {
-    border: 3px dashed var(--secondary-color);
-    width: 65%;
-    aspect-ratio: 1/1;
-    padding: 10px;
+    margin: auto;
+    .swiper-wrapper {
+      //to add pagination
+      height: calc(100% - 25px);
+    }
+    .swiper-slide {
+      border-radius: 8px;
+      background: $light-gray;
+      @include flex(row, center, center);
+    }
+    .swiper-pagination {
+        position: static !important;
+        @include flex(row, center, end);
+        padding-top: 13px;
+        .swiper-pagination-bullet {
+            background-color: $secondary !important;
+            width: 16px;
+            border-radius: 20px;
+        }
+        .swiper-pagination-bullet-active {
+            width: 48px;
+        }
+    }
 }
 
+// .img-section-parent:has(.image-attachment)::after {
+//     content: "";
+//     position: absolute;
+//     top: 6%;
+//     left: -11px;
+//     width: 100%;
+//     height: 100%;
+//     background-image: url(../images/mission-img-attach.svg);
+//     background-repeat: no-repeat;
+// }
+.img-section-parent {
+    max-height: 500px;
+ }
+.solutions {
+  .img-section-parent {
+      img {
+        border-radius: 12px;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: map-get($colors,"primary");
+        border-radius: 12px;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        inset-block-start: 6px;
+        inset-inline-start: 18px;
+        transform: rotate(6deg);
+      }
+  }
+
+}
+
+.about-video {
+    max-height: 300px;
+    background: $gray-color;
+    position: relative;
+    .bi {
+        font-size: 50px;
+        color: #fff;
+        position: absolute;
+        overflow: hidden;
+        line-height: 0.9;
+        background-color: $primary;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+  }
+
+  .smart-chooice {
+    .card {
+      
+    }
+  }
 //footer
 footer {
     position: fixed;
@@ -391,7 +438,7 @@ footer {
     }
     .copy-right {
       @include apply-main-padding();
-      height: 54px;
+      height: $copyright-height;
       background-color: #fff;
     }
     .footer-list {
@@ -473,4 +520,7 @@ footer {
     .col-sm-12 {
       width: 100%;
     }
+    .card{
+       min-width: unset;
+    }   
 }
