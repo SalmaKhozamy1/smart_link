@@ -148,11 +148,9 @@ body:has(header.active) {
 //main page
 main {
     display: flex;
-    margin-bottom: $footer-height;
+    margin-bottom: $footer-height - 15px;
     flex-grow: 1;
-    * {
-      color: $black;
-    }
+ 
     .title-main {
       @include abs-transform(45%, 0%);
       z-index: 3;
@@ -241,11 +239,6 @@ main {
   }
 }
 
-
-
-
-
- 
 .title-float 
 .main-float-desc {
     padding-left: 27%;
@@ -256,7 +249,6 @@ main {
 }
 
 // interior page style
-
 .primary-bg-title {
     border-radius: 32px;
     background: $light-primary-color;
@@ -301,26 +293,6 @@ main {
 }
 
 /* swipper */
-
-// .partner-swipper-btn {
-//     position: relative !important;
-//     left: unset;
-//     right: unset;
-//     aspect-ratio: 1/1;
-//     width: 35px;
-//     height: auto;
-//     margin: 0px;
-//     top: unset;
-//     background: linear-gradient(to right, #1E7DA3, #1D5166);
-//     border-radius: 50%;
-//     color: #fff;
-// }
-// .partner-swipper-btn::after {
-//     content: " ";
-// }
-// .partner-swipper-btn * {
-//     color: #fff;
-// }
 .partner_swipper {
     height: 63vh;
     margin-left: auto;
@@ -355,19 +327,9 @@ main {
     }
 }
 
-// .img-section-parent:has(.image-attachment)::after {
-//     content: "";
-//     position: absolute;
-//     top: 6%;
-//     left: -11px;
-//     width: 100%;
-//     height: 100%;
-//     background-image: url(../images/mission-img-attach.svg);
-//     background-repeat: no-repeat;
-// }
 .img-section-parent {
     max-height: 500px;
- }
+}
 .solutions {
   .img-section-parent {
       img {
@@ -407,11 +369,62 @@ main {
     }
   }
 
-  .smart-chooice {
-    .card {
-      
+.chooice_card {
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 4rem 2rem 3rem 2rem;
+
+    // الشكل العام لـ before/after
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+    }
+
+    &::before {
+      width: 110px;
+      top: -23%;
+       background-color: #fff;
+    }
+
+    &::after {
+      width: 100px;
+      top: -21%;
+    }
+    // أول وآخر كرت
+    &:first-child,
+    &:last-child {
+        background: #EFEBE7;
+      &::after {
+        background: $primary-gradient;
+        color: #fff;
+      }
+    }
+
+    // الكرت الأوسط
+    &:nth-child(2) {
+      background: linear-gradient(90deg, #E88B2A 0.03%, #E26730 73.39%, #DF5832 100.28%);
+      color: #fff !important;
+      &::after {
+        background-color: #EFEBE7;
+      }
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 500;
     }
   }
+}
+
+.privacy_list {
+  list-style: disc;
+  list-style-position: inside;
+}
 //footer
 footer {
     position: fixed;

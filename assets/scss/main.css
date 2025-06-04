@@ -5,8 +5,8 @@
 }
 * {
   font-family: "Tajawal", sans-serif;
-  color: #1B1D1E;
   font-style: normal;
+  line-height: normal;
 }
 
 html, body {
@@ -302,6 +302,10 @@ textarea {
   text-transform: capitalize;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .icon-sm {
   width: 24px;
   height: 24px;
@@ -464,11 +468,8 @@ body:has(header.active) {
 }
 main {
   display: flex;
-  margin-bottom: 85px;
+  margin-bottom: 70px;
   flex-grow: 1;
-}
-main * {
-  color: #1B1D1E;
 }
 main .title-main {
   position: absolute;
@@ -694,6 +695,51 @@ main .main-character {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.chooice_card .card, .chooice_card .menu-page .card-menu, .menu-page .chooice_card .card-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 4rem 2rem 3rem 2rem;
+}
+.chooice_card .card::before, .chooice_card .menu-page .card-menu::before, .menu-page .chooice_card .card-menu::before, .chooice_card .card::after, .chooice_card .menu-page .card-menu::after, .menu-page .chooice_card .card-menu::after {
+  content: "";
+  position: absolute;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+.chooice_card .card::before, .chooice_card .menu-page .card-menu::before, .menu-page .chooice_card .card-menu::before {
+  width: 110px;
+  top: -23%;
+  background-color: #fff;
+}
+.chooice_card .card::after, .chooice_card .menu-page .card-menu::after, .menu-page .chooice_card .card-menu::after {
+  width: 100px;
+  top: -21%;
+}
+.chooice_card .card:first-child, .chooice_card .menu-page .card-menu:first-child, .menu-page .chooice_card .card-menu:first-child, .chooice_card .card:last-child, .chooice_card .menu-page .card-menu:last-child, .menu-page .chooice_card .card-menu:last-child {
+  background: #EFEBE7;
+}
+.chooice_card .card:first-child::after, .chooice_card .menu-page .card-menu:first-child::after, .menu-page .chooice_card .card-menu:first-child::after, .chooice_card .card:last-child::after, .chooice_card .menu-page .card-menu:last-child::after, .menu-page .chooice_card .card-menu:last-child::after {
+  background: linear-gradient(90deg, #E88B2A 0.03%, #E26730 73.39%, #DF5832 100.28%);
+  color: #fff;
+}
+.chooice_card .card:nth-child(2), .chooice_card .menu-page .card-menu:nth-child(2), .menu-page .chooice_card .card-menu:nth-child(2) {
+  background: linear-gradient(90deg, #E88B2A 0.03%, #E26730 73.39%, #DF5832 100.28%);
+  color: #fff !important;
+}
+.chooice_card .card:nth-child(2)::after, .chooice_card .menu-page .card-menu:nth-child(2)::after, .menu-page .chooice_card .card-menu:nth-child(2)::after {
+  background-color: #EFEBE7;
+}
+.chooice_card .card p, .chooice_card .menu-page .card-menu p, .menu-page .chooice_card .card-menu p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.privacy_list {
+  list-style: disc;
+  list-style-position: inside;
 }
 
 footer {

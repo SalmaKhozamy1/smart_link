@@ -8,8 +8,8 @@
 }
 * {
     font-family: "Tajawal", sans-serif;
-    color: $text-color;
     font-style: normal;
+    line-height: normal;
 }
 
 html, body {
@@ -87,6 +87,7 @@ $buttons-colors: (
     font-weight: $weight;
   }
 }
+
 
 p {
     font-size: 18px;
@@ -206,6 +207,9 @@ textarea {
 }
 .capitalize {
     text-transform: capitalize;
+}
+.uppercase {
+  text-transform: uppercase;
 }
 .icon-sm {
     width: 24px;
